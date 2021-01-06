@@ -10,5 +10,5 @@ echo "{\"bookmarks\": {\"conversations\": \"\", \"customers\": \"\", \"kobjects\
 
 #create stitch config file
 TOKEN=`echo $STITCH_TOKEN | sed 's/[{}]//g' | sed 's/\"\"/\"/g'`
-echo "{\"client_id\": $STITCH_CLIENT_ID, $TOKEN,\"small_batch_url\": \"https://api.stitchdata.com/v2/import/batch\",\"big_batch_url\": \"https://api.stitchdata.com/v2/import/batch\",\"batch_size_preferences\": {}}" > /home/singer-dialpad/stitch-config.json
+echo "{\"client_id\": $STITCH_CLIENT_ID, $TOKEN,\"small_batch_url\": \"https://api.stitchdata.com/v2/import/batch\",\"big_batch_url\": \"https://api.stitchdata.com/v2/import/batch\",\"batch_size_preferences\": {}}" > /home/tap-kustomer/stitch-config.json
 
