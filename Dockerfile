@@ -6,14 +6,16 @@ RUN groupadd -g 1001 -r tap-kustomer &&\
 RUN mkdir /home/tap-kustomer && \
     chown -R tap-kustomer:tap-kustomer /home/tap-kustomer
 
-#COPY requirements_dev.txt /
-#RUN pip install -r /requirements_dev.txt
+COPY requirements.txt /
+RUN pip install -r /requirements.txt
 COPY . /app
 WORKDIR /app
 
 COPY catalog.json /home/tap-kustomer/kustomer-catalog.json
+COPY kustomer-state.json /home/tap-kustomer/kustomer-state.json
+RUN chown -R tap-kustomer:tap-kustomer /home/tap-kustomer
 
 RUN pip install .
 
 USER tap-kustomer
-CMD sh get-config.sh && tap-kustomer --config /home/tap-kustomer/kustomer-config.json --state kustomer-state.json --catalog catalog.json | target-stitch --config /home/singer-dialpad/stitch-config.json
+CMD ls && sh get-config.sh && tap-kustomer --config /home/tap-kustomer/kustomer-config.json --state /home/tap-kustomer/kustomer-state.json --catalog /home/tap-kustomer/kustomer-catalog.json | target-stitch --config /home/tap-kustomer/stitch-config.json
