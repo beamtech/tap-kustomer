@@ -7,7 +7,7 @@ RUN mkdir /home/tap-kustomer && \
     chown -R tap-kustomer:tap-kustomer /home/tap-kustomer
 
 COPY requirements.txt /
-RUN pip install -r /requirements\.txt
+RUN pip install -r /requirements.txt
 COPY . /app
 WORKDIR /app
 
