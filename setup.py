@@ -10,9 +10,11 @@ setup(name='tap-kustomer',
       py_modules=['tap_kustomer'],
       install_requires=[
           'backoff==1.8.0',
-          'requests==2.22.0',
+          'requests==2.20.0',
           'singer-python==5.8.0',
-          'attrs==16.3.0'
+          'attrs==17.3.0',
+          'target-stitch==3.2.0',
+          'awscli==1.18.209'
       ],
       extras_require={
         'dev': [
