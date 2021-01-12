@@ -18,4 +18,4 @@ RUN chown -R tap-kustomer:tap-kustomer /home/tap-kustomer
 RUN pip install .
 
 USER tap-kustomer
-CMD ls && sh get-config.sh && tap-kustomer --config /home/tap-kustomer/kustomer-config.json --state /home/tap-kustomer/kustomer-state.json --catalog /home/tap-kustomer/kustomer-catalog.json | target-stitch --config /home/tap-kustomer/stitch-config.json
+CMD ls && sh get-config.sh && tap-kustomer --config /home/tap-kustomer/kustomer-config.json --state /home/tap-kustomer/kustomer-state.json --catalog /home/tap-kustomer/kustomer-catalog.json | target-stitch --config /home/tap-kustomer/stitch-config.json && sh update-state.py
